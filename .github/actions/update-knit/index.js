@@ -1,7 +1,7 @@
 // @actions/github
 // @actions/exec
 // @actions/core
-
+// npm install --save @actions/github @actions/exec
 const runDate = Date.now();
 async function run() {
   try {
