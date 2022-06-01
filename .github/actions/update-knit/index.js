@@ -3,8 +3,9 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-const runDate = Date.now();
 async function run() {
+  const runDate = Date.now();
+
   try {
     const repo = core.getInput("released_repo")
     const owner = core.getInput("owner")
