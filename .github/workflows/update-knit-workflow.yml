@@ -14,4 +14,5 @@ jobs:
         uses: ./.github/actions/update-knit
         with:
           repo-token: ${{secrets.G_ACCESS_TOKEN}}
-          released_repo: "knit"
+          owner: "facebook"
+          released_repo: "react"
