@@ -17,15 +17,18 @@ async function run() {
 
     const octokit = github.getOctokit(token);
 
-    const latestReleaseTag = await octokit.rest.repos.getLatestRelease({
+    const {
+      data: { tag_name },
+    } = await octokit.rest.repos.getLatestRelease({
       owner,
       repo,
     });
 
+    const latestReleaseTag = data.tag_name
+
     console.log("LATEST RELEASE", latestReleaseTag)
 
-    // Get latest Release from Knit
-    // console.log the Release from Knit
+    const branchName = `${repo}-upgrade-${latestReleaseTag}-${runDate}`
 
     // pull from main and git checkout to a new branch with the name of Latest knit release
 
@@ -35,7 +38,13 @@ async function run() {
     // create a PR based on the commit
     // 
 
-    console.log(runDate)
+    console.log("RUN DATE", runDate)
+
+    await exec.exec('git pull')
+    await exec.exec(`git checkout -b ${branchName}`)
+    await exec.exec(`pwd`)
+
+
 
   } catch (err) {
     core.setFailed(err.message);
