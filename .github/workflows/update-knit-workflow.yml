@@ -1,6 +1,7 @@
 name: Trigger Knit
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   action:
@@ -12,5 +13,5 @@ jobs:
       - name: start-update
         uses: ./.github/actions/update-knit
         with:
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+          repo-token: ${{secrets.G_ACCESS_TOKEN}}
           released_repo: "knit"
