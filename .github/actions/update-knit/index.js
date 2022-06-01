@@ -1,24 +1,27 @@
 
 // @actions/core
+const core = require("@actions/core");
 const github = require("@actions/github");
 
 const runDate = Date.now();
 async function run() {
   try {
-    console.log('======================================');
-    console.log('          Knit Updater!               ');
-    console.log('======================================');
-
+    const repo = core.getInput("released_repo")
+    const owner = core.getInput("owner")
     const token = core.getInput("repo-token");
+
+    console.log('======================================');
+    console.log(`       ${repo} Updater!               `);
+    console.log('======================================');
 
     const octokit = github.getOctokit(token);
 
-    const newIssue = await octokit.rest.issues.create({
-      repo: github.context.repo.repo,
-      owner: github.context.repo.owner,
-      title: issueTitle,
-      body: jokeBody
+    const latestReleaseTag = await octokit.rest.repos.getLatestRelease({
+      owner,
+      repo,
     });
+
+    console.log("LATEST RELEASE", latestReleaseTag)
 
     // Get latest Release from Knit
     // console.log the Release from Knit

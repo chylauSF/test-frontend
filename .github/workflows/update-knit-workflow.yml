@@ -11,3 +11,6 @@ jobs:
 
       - name: start-update
         uses: ./.github/actions/update-knit
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          released_repo: "knit"
