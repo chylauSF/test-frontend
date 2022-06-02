@@ -48,13 +48,13 @@ async function run() {
     await exec.exec(`touch example.txt`)
     await exec.exec("git add .")
     await exec.exec(`git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`)
-    await exec.exec(`git push --set-upstream origin ${branchName}`)
+    // await exec.exec(`git push --set-upstream origin ${branchName}`)
 
     octokit.rest.pulls.create({
       owner,
       repo,
       base: "main",
-      head: `chylauSF:${branchName}`,
+      head: `github-actions:${branchName}`,
       title: "automated PR"
     });
 
