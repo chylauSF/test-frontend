@@ -10193,8 +10193,8 @@ async function run() {
 
     console.log("RUN DATE", runDate)
 
-    await exec.exec('git config --global user.email "github-actions@github.com"')
-    await exec.exec('git config --global user.name "github-actions"')
+    await exec.exec('git config --global user.email "christine.chois@stitchfix.com"')
+    await exec.exec('git config --global user.name "chylauSF"')
 
     await exec.exec('git pull origin main')
     await exec.exec(`git checkout -b ${branchName}`)
@@ -10207,7 +10207,7 @@ async function run() {
       owner,
       repo,
       base: "main",
-      head: `github-actions:${branchName}`,
+      head: `chylauSF:${branchName}`,
       title: "automated PR"
     });
 
