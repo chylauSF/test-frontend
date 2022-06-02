@@ -50,6 +50,10 @@ async function run() {
     await exec.exec(`git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`)
     await exec.exec(`git push --set-upstream origin ${branchName}`)
 
+    await exec.exec(
+      `hub pull-request -m "Creating a PR" -l knit-update -b ${checkoutBranch}`,
+    )
+
 
   } catch (err) {
     core.setFailed(err.message);
