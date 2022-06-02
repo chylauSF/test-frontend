@@ -24,7 +24,7 @@ async function run() {
       repo,
     });
 
-    const latestReleaseTag = data.tag_name
+    const latestReleaseTag = tag_name
 
     console.log("LATEST RELEASE", latestReleaseTag)
 
