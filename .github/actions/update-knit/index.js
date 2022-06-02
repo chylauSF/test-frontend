@@ -40,7 +40,7 @@ async function run() {
 
     console.log("RUN DATE", runDate)
 
-    await exec.exec('git pull')
+    await exec.exec('git pull origin main')
     await exec.exec(`git checkout -b ${branchName}`)
     await exec.exec(`touch example.txt`)
     await exec.exec(`git add . && git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`);
