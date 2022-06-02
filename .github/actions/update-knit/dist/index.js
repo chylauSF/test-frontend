@@ -10181,7 +10181,7 @@ async function run() {
 
     console.log("LATEST RELEASE", latestReleaseTag)
 
-    const branchName = `${repo}-upgrrade-${latestReleaseTag}-${runDate}`
+    const branchName = `${repo}-upgrade-to-${latestReleaseTag}-${runDate}`
 
     // pull from main and git checkout to a new branch with the name of Latest knit release
 
@@ -10201,7 +10201,7 @@ async function run() {
     await exec.exec(`touch example.txt`)
     await exec.exec("git add .")
     await exec.exec(`git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`)
-    // await exec.exec(`git push --set-upstream origin ${branchName}`)
+    await exec.exec(`git push --set-upstream origin ${branchName}`)
 
     octokit.rest.pulls.create({
       owner,
