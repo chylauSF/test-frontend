@@ -8884,7 +8884,7 @@ async function run() {
     } = await octokit.rest.repos.getLatestRelease({
       owner,
       repo,
-    }).data.tag_name;
+    });
 
     const latestReleaseTag = tag_name
 
