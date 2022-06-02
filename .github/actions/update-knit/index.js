@@ -51,7 +51,7 @@ async function run() {
     await exec.exec(`git push --set-upstream origin ${branchName}`)
 
     await exec.exec(
-      `hub pull-request -m "Creating a PR" -l knit-update -b ${checkoutBranch}`,
+      `hub pull-request -m "Creating a PR" -l knit-update -b main`,
     )
 
 
