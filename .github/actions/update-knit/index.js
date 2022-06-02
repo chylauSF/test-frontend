@@ -20,10 +20,10 @@ async function run() {
     const latestReleaseTag = await octokit.rest.repos.getLatestRelease({
       owner,
       repo,
-    }).data.tag_name;
+    });
 
 
-    console.log("LATEST RELEASE", latestReleaseTag)
+    console.log("LATEST RELEASE", latestReleaseTag.data.tag_name)
 
     const branchName = `${repo}-upgrade-${latestReleaseTag}-${runDate}`
 
