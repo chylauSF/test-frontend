@@ -10183,14 +10183,6 @@ async function run() {
 
     const branchName = `${repo}-upgrade-to-${latestReleaseTag}-${runDate}`
 
-    // pull from main and git checkout to a new branch with the name of Latest knit release
-
-
-    // Run NPM update knit version
-    // git add and commit
-    // create a PR based on the commit
-    // 
-
     console.log("RUN DATE", runDate)
 
     await exec.exec('git config --global user.email "christine.chois@stitchfix.com"')
