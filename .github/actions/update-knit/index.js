@@ -1,7 +1,7 @@
 
-// @actions/core
 const core = require("@actions/core");
 const github = require("@actions/github");
+const exec = require("@actions/exec");
 
 async function run() {
   const runDate = Date.now();
