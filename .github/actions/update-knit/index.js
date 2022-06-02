@@ -17,14 +17,11 @@ async function run() {
 
     const octokit = github.getOctokit(token);
 
-    const {
-      data: { tag_name },
-    } = await octokit.rest.repos.getLatestRelease({
+    const latestReleaseTag = await octokit.rest.repos.getLatestRelease({
       owner,
       repo,
-    });
+    }).data.tag_name;
 
-    const latestReleaseTag = tag_name
 
     console.log("LATEST RELEASE", latestReleaseTag)
 
