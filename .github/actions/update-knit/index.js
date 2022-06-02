@@ -53,8 +53,8 @@ async function run() {
     octokit.rest.pulls.create({
       owner,
       repo,
-      head: "main",
-      base: branchName,
+      base: "main",
+      head: branchName,
       title: "automated PR"
     });
 
