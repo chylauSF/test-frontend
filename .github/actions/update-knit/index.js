@@ -51,8 +51,8 @@ async function run() {
     await exec.exec(`git push --set-upstream origin ${branchName}`)
 
     octokit.rest.pulls.create({
-      owner,
-      repo,
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
       base: "main",
       head: `chylauSF:${branchName}`,
       title: "automated PR"
