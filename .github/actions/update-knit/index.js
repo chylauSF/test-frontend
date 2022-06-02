@@ -23,7 +23,7 @@ async function run() {
     });
 
 
-    console.log("LATEST RELEASE", latestReleaseTag.data.tag_name)
+    console.log("HELLO", latestReleaseTag["data"])
 
     const branchName = `${repo}-upgrade-${latestReleaseTag}-${runDate}`
 
