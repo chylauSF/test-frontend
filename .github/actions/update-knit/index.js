@@ -28,7 +28,7 @@ async function run() {
 
     console.log("LATEST RELEASE", latestReleaseTag)
 
-    const branchName = `${repo}-upgrade-${latestReleaseTag}-${runDate}`
+    const branchName = `${repo}-upgrrade-${latestReleaseTag}-${runDate}`
 
     // pull from main and git checkout to a new branch with the name of Latest knit release
 
