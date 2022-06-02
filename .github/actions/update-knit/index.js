@@ -43,8 +43,9 @@ async function run() {
     await exec.exec('git pull origin main')
     await exec.exec(`git checkout -b ${branchName}`)
     await exec.exec(`touch example.txt`)
-    await exec.exec(`git add . && git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`);
-    await exec.exec(`git push --set-upstream origin ${branchName}`);
+    await exec.exec("git add .")
+    await exec.exec(`git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`)
+    await exec.exec(`git push --set-upstream origin ${branchName}`)
 
 
   } catch (err) {
