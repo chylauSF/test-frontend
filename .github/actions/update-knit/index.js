@@ -47,7 +47,7 @@ async function run() {
       repo: github.context.repo.repo,
       base: "main",
       head: `chylauSF:${branchName}`,
-      title: "automated PR"
+      title: `Automated PR to update ${repo} to v${latestReleaseTag}`
     });
 
   } catch (err) {
