@@ -24,7 +24,7 @@ async function run() {
       repo,
     });
 
-    const latestReleaseTag = tag_name
+    const latestReleaseTag = tag_name.slice(1)
 
     console.log("LATEST RELEASE", latestReleaseTag)
 
@@ -45,7 +45,7 @@ async function run() {
 
     await exec.exec('git pull origin main')
     await exec.exec(`git checkout -b ${branchName}`)
-    await exec.exec(`touch example.txt`)
+    await exec.exec(`npm install ${repo}@${latestReleaseTag}`)
     await exec.exec("git add .")
     await exec.exec(`git commit -m "Upgrade ${repo} to ${latestReleaseTag}"`)
     await exec.exec(`git push --set-upstream origin ${branchName}`)
@@ -64,10 +64,3 @@ async function run() {
 }
 
 run();
-
-
-
-// octokit.rest.repos.getLatestRelease({
-//   owner,
-//   repo,
-// });
